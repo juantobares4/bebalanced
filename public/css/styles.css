@@ -1,0 +1,121 @@
+/* Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Baloo 2 */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+
+/* Matangi */
+@import url('https://fonts.googleapis.com/css2?family=Matangi:wght@300..900&display=swap');
+
+:root{
+  --cta-font: "Baloo 2", sans-serif;
+  --titles-font: 'Montserrat', sans-serif;
+  --paragraph-font: 'Roboto', sans-serif;
+  --main-color: #A9CCEB;
+  --sections-color: #E6F2FA;
+  --buttons-color: #539ed3c6;
+  --numbers-font: 'Matangi', sans-serif;
+  
+}
+
+.numbers-font{
+  font-family: var(--numbers-font);
+
+}
+
+.cta-font{
+  font-family: var(--cta-font) !important;
+  font-weight: 700;
+
+}
+
+.titles-font{
+  font-family: var(--titles-font);
+
+}
+
+.paragraph-font{
+  font-family: var(--paragraph-font);
+
+}
+
+.main-color{
+  background-color: var(--main-color);
+
+}
+
+.sections-color{
+  background-color: var(--sections-color);
+
+}
+
+.buttons-color{
+  background-color: var(--buttons-color) !important;
+  color: white !important;
+
+}
+
+.main-title{
+  transition: transform 0.3s ease;
+
+}
+
+.main-title:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+
+}
+
+button:hover{
+  background-color: #5197c9 !important;
+
+}
+
+.empty-section{
+  opacity: 0.85;
+
+}
+
+.side-bar-text {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+
+}
+
+.side-bar-line {
+  width: 5px;
+  background-color: #7cb0dd;
+  border-radius: 4px;
+
+}
+
+.effect{
+  transition: transform 0.3s ease;
+
+}
+
+.effect:hover{
+  transform: translateX(15px) scale(1.05);
+  cursor: pointer;
+
+}
+
+a{
+  transition: transform 0.3s ease;
+
+}
+
+a:link, a:visited, a:active{
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.884);
+
+}
+
+a:hover{
+  transform: translateX(5px) scale(1.01);
+
+}
