@@ -13,11 +13,11 @@ HTML, CSS y Boostrap, JavaScript.
 
 ### ✅  ¿Cómo comenzar a utilizarla?
 Si bien su uso es sencillo, debemos seguir los siguientes pasos:
-1. Clonar el repositorio (repositorio general):
-`git clone git@github.com:juantobares4/my-projects.git`
+1. Clonar el repositorio :
+`git@github.com:juantobares4/bebalanced.git` (SSH) o `https://github.com/juantobares4/bebalanced.git` (HTTPS)
 
 2. Una vez clonado, entrar a la carpeta del proyecto de *Be Balanced*:
-    `cd Be Balanced`
+    `cd bebalanced`
 
 3. Instalar y correr la aplicación con Live Server -- extensión de VSCode --. Utilizará el puerto 5500 para correr nuestro proyecto.
 
@@ -33,7 +33,7 @@ La idea de este proyecto es seguir añadiendo funcionalidades a la app, de forma
 ### 📧 Contacto
 
 [Gmail](mailto:juantobares4@gmail.com)
-[Whatsapp](https://wa.me/543584860460)
+[Telegram](https://t.me/JuanCruzTobares4)
 [LinkedIn](https://www.linkedin.com/in/juancruz-tobares-dev)
 
 ---
