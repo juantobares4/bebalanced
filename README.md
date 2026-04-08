@@ -23,13 +23,6 @@ Si bien su uso es sencillo, debemos seguir los siguientes pasos:
 
 4. Click derecho en *Go Live* en la barra inferior derecha de nuestro editor de texto (VSCode).
 
-### 🔨 Futuras implementaciones
-La idea de este proyecto es seguir añadiendo funcionalidades a la app, de forma tal que sea lo más funcional y profesional posible a largo plazo.
-
-1. Gráficos para monitorear gastos mensuales y anuales
-2. Tips económicos para mejorar nuestro presupuesto
-3. Base de datos con usuarios
-
 ### 📧 Contacto
 
 [Gmail](mailto:juantobares4@gmail.com)
