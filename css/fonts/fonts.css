@@ -1,0 +1,19 @@
+/* Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Roboto */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Baloo 2 */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap');
+
+/* Matangi */
+@import url('https://fonts.googleapis.com/css2?family=Matangi:wght@300..900&display=swap');
+
+:root{
+  --cta-font: "Baloo 2", sans-serif;
+  --titles-font: 'Montserrat', sans-serif;
+  --paragraph-font: 'Roboto', sans-serif;
+  --numbers-font: 'Matangi', sans-serif;
+
+}

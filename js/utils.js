@@ -1,3 +1,5 @@
+import { links } from "./links.js";
+
 export const getFromLocalStorage = (key) => {
   const data = localStorage.getItem(key);
 
@@ -15,22 +17,22 @@ export const getStatusIcon = (status) => {
   
   switch (status) {
     case 'error':
-      iconUrl = './public/css/icons/x-circle-fill.svg';  
+      iconUrl = '<i class="bi bi-x-circle me-1"></i>';  
 
       break;
 
     case 'success':
-      iconUrl = './public/css/icons/check-circle-fill.svg';
+      iconUrl = '<i class="bi bi-check-circle me-1"></i>';
 
       break
   
     case 'warning':
-      iconUrl = './public/css/icons/exclamation-triangle-fill.svg';
+      iconUrl = '<i class="bi bi-exclamation-circle me-1"></i>';
 
       break
 
     default:
-      iconUrl = './public/css/icons/info-circle-fill.svg';
+      iconUrl = '<i class="bi bi-info-circle me-1"></i>';
 
       break
 
@@ -136,5 +138,81 @@ export const validateTransaction = (amount, totalBudget) => {
 
 export const validateInfo = (data) => {
   return Object.values(data).some(value => value !== '' && value !== null && value !== undefined && value !== 0 && value !== data.id);
+
+};
+
+export const showToast = (type, title, msg, container) => {
+  const mainContainer = document.getElementById(container) || document.body;
+  let toastWrapper = document.getElementById('toast-wrapper');
+  
+  if (!toastWrapper) {
+    toastWrapper = document.createElement('div');
+    toastWrapper.id = 'toast-wrapper';
+    toastWrapper.className = 'toast-container position-fixed top-0 start-50 translate-middle-x end-0 p-3';
+    toastWrapper.style.zIndex = 1055;
+    mainContainer.appendChild(toastWrapper);
+  
+  };
+
+  const imgSrc = getStatusIcon(type);
+
+  const toast = document.createElement('div');
+  toast.className = 'toast align-items-center';
+  toast.setAttribute('role', 'alert');
+  toast.setAttribute('aria-live', 'assertive');
+  toast.setAttribute('aria-atomic', 'true');
+
+  const typeMap = {
+    success: "success",
+    error: "danger",
+    info: "info",
+    warning: "warning"
+  
+  };
+
+  toast.innerHTML = `
+    <div class="toast-header titles-font">
+      ${imgSrc}
+      <strong class="me-auto text-${typeMap[type] || 'primary'}" style="font-size: 14px">${title}</strong>
+      <small class="text-muted ms-2">Just now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body text-center paragraph-font" style="font-size: 13px">
+      ${msg}
+    </div>
+  
+  `;
+
+  toastWrapper.appendChild(toast);
+
+  const bsToast = new bootstrap.Toast(toast, { delay: 4000 });
+  
+  bsToast.show();
+
+  toast.addEventListener('hidden.bs.toast', () => {
+    toast.remove();
+  
+  });
+
+};
+
+export const scrollTo = (id) => {
+  const linkId = id;
+  const sectionId = links[linkId];
+
+  const targetSection = document.getElementById(sectionId);
+
+  if (targetSection) {
+    const offset = 320;
+    const elementTop = targetSection.getBoundingClientRect().top + window.scrollY;
+    const scrollPosition = elementTop - offset;
+
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: 'smooth'
+    
+    });
+  
+  };
 
 };

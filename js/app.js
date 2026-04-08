@@ -1,7 +1,6 @@
-import { calculatePercentage, capitalizeFirstLetter, filterAndGetTotal, getFormData, getStatusIcon, validateInfo, validateTransaction  } from './utils.js';
+import { calculatePercentage, capitalizeFirstLetter, filterAndGetTotal, getFormData, showToast, scrollTo, validateInfo, validateTransaction  } from './utils.js';
 import { formatCurrency, updateCashFlow } from './utils.js';
 import { saveInLocalStorage, getFromLocalStorage } from './utils.js';
-import { links } from './links.js';
 
 const formRestartBudget = document.getElementById('form-restart-budget');
 const formTransactions = document.getElementById('form-transactions');
@@ -27,75 +26,6 @@ const showBudget = (container) => {
 
   };
   
-};
-
-const showToast = (type, title, msg) => {
-  const mainContainer = document.getElementById('main-container');
-
-  let toastWrapper = document.getElementById('toast-wrapper');
-  
-  if (!toastWrapper) {
-    toastWrapper = document.createElement('div');
-    toastWrapper.id = 'toast-wrapper';
-    toastWrapper.className = 'toast-container position-fixed top-0 start-50 translate-middle-x end-0 p-3';
-    toastWrapper.style.zIndex = 1055;
-    mainContainer.appendChild(toastWrapper);
-  
-  };
-
-  const imgSrc = getStatusIcon(type);
-
-  const toast = document.createElement('div');
-  toast.className = 'toast align-items-center';
-  toast.setAttribute('role', 'alert');
-  toast.setAttribute('aria-live', 'assertive');
-  toast.setAttribute('aria-atomic', 'true');
-
-  toast.innerHTML = `
-    <div class="toast-header titles-font">
-      <img src="${imgSrc}" class="rounded me-2" alt="icon" style="width: 20px; height: 20px;">
-      <strong class="me-auto text-${type === 'success' ? 'success' : 'danger'}" style="font-size: 14px">${title}</strong>
-      <small class="text-muted ms-2">Just now</small>
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body text-center paragraph-font" style="font-size: 13px">
-      ${msg}
-    </div>
-  
-  `;
-
-  toastWrapper.appendChild(toast);
-
-  const bsToast = new bootstrap.Toast(toast, { delay: 4000 });
-  
-  bsToast.show();
-
-  toast.addEventListener('hidden.bs.toast', () => {
-    toast.remove();
-  
-  });
-
-};
-
-const scrollTo = (id) => {
-  const linkId = id;
-  const sectionId = links[linkId];
-
-  const targetSection = document.getElementById(sectionId);
-
-  if (targetSection) {
-    const offset = 320;
-    const elementTop = targetSection.getBoundingClientRect().top + window.scrollY;
-    const scrollPosition = elementTop - offset;
-
-    window.scrollTo({
-      top: scrollPosition,
-      behavior: 'smooth'
-    
-    });
-  
-  };
-
 };
 
 const viewTotalIncomesAndExpenses = () => {
@@ -368,6 +298,17 @@ const handleSubmitTransactions = (event) => {
 };
 
 const main = () => {
+  formRestartBudget.addEventListener('submit', handleRestartBudget);
+  formTransactions.addEventListener('submit', handleSubmitTransactions);
+
+  navbarLinks.forEach(link => link.addEventListener('click', (event) => {
+    event.preventDefault();
+    const id = link.dataset.id;
+    
+    scrollTo(id);
+
+  }));
+  
   const mainElementBudget = document.getElementById('total-budget');
 
   showBudget(mainElementBudget); // Mantiene actualizado el presupuesto al iniciar la página y al enviar el formulario.
@@ -376,16 +317,5 @@ const main = () => {
   viewTotalIncomesAndExpenses();
 
 };
-
-formRestartBudget.addEventListener('submit', handleRestartBudget);
-formTransactions.addEventListener('submit', handleSubmitTransactions);
-
-navbarLinks.forEach(link => link.addEventListener('click', (event) => {
-  event.preventDefault();
-  const id = link.dataset.id;
-  
-  scrollTo(id);
-
-}));
 
 main();
