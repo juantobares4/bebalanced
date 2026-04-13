@@ -137,7 +137,7 @@ export const validateTransaction = (amount, totalBudget) => {
 };
 
 export const validateInfo = (data) => {
-  return Object.values(data).some(value => value !== '' && value !== null && value !== undefined && value !== 0 && value !== data.id);
+  return Object.values(data).some(value => !value);
 
 };
 

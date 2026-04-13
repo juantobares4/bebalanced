@@ -70,8 +70,8 @@
     <form class="px-0" id="formTransactions" style="margin-top: 100px;">
       <div class="row g-3">
         <div class="col-12 col-lg-3">
-          <select name="transactionType" class="form-select ">
-            <option selected disabled>Tipo de operación</option>
+          <select id="selectTransactionType" name="transactionType" class="form-select">
+            <option value="" selected disabled>Tipo de operación</option>
             <option value="income">Ingreso de dinero</option>
             <option value="expense">Egreso de dinero</option>
           </select>
@@ -79,7 +79,7 @@
         <div class="col-lg-4 col-md-6">
           <div class="input-group">
             <span class="input-group-text">
-              <img id="descriptionIcon" src="/images/icons/graph-up-arrow.svg" alt="Up arrow">
+              <img id="typeTransactionIcon" src="/images/icons/graph-up-arrow.svg" alt="Up arrow">
             </span>
             <input name="description" type="text" class="form-control" placeholder="Ingresá una descripción...">
           </div>

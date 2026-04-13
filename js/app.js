@@ -259,17 +259,20 @@ const handleSubmitTransactions = (event) => {
   event.preventDefault();
 
   const mainElementBudget = document.getElementById('totalBudget');
+  const typeTransactionIcon = document.getElementById('typeTransactionIcon');
+  const selectTransactionType = document.getElementById('selectTransactionType').value;
+
   const formData = getFormData(formTransactions);
   const totalBudget = getFromLocalStorage('budget');
   const budget = !totalBudget.length /* Si no hay presupuesto en el localstorage */ ? 0 : Number(totalBudget[0]);
   
-  if (!validateInfo(formData)) {
+  if (validateInfo(formData) || !selectTransactionType) {
     showToast('error', 'Formulario vacío', 'Tenés que completar los campos.');
     
     return;
     
   };
-  
+
   const isValid = validateTransaction(formData.amount, budget);
 
   if (formData.transactionType === 'income' || isValid) {

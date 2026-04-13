@@ -29,7 +29,8 @@ button.btn{
 
 button img{ filter: invert(0); }
 
-button:hover{
+button:hover, 
+button:focus{
   background-color: #5197c9 !important;
   color: #2b2b2bdf;
 
