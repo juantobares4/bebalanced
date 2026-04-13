@@ -2,8 +2,8 @@ import { calculatePercentage, capitalizeFirstLetter, filterAndGetTotal, getFormD
 import { formatCurrency, updateCashFlow } from './utils.js';
 import { saveInLocalStorage, getFromLocalStorage } from './utils.js';
 
-const formRestartBudget = document.getElementById('form-restart-budget');
-const formTransactions = document.getElementById('form-transactions');
+const formRestartBudget = document.getElementById('formRestartBudget');
+const formTransactions = document.getElementById('formTransactions');
 const navbarLinks = document.querySelectorAll('.navbar-links');
 let transactions = getFromLocalStorage('transactions'); // Necesito una pila de datos para luego mostrarlos uno por uno.
 
@@ -29,9 +29,9 @@ const showBudget = (container) => {
 };
 
 const viewTotalIncomesAndExpenses = () => {
-  const containerTotalIncomes = document.getElementById('total-amount-incomes');
-  const containerTotalExpenses = document.getElementById('total-amount-expenses');
-  const containerPercentage = document.getElementById('total-percentage');
+  const containerTotalIncomes = document.getElementById('totalAmountIncomes');
+  const containerTotalExpenses = document.getElementById('totalAmountExpenses');
+  const containerPercentage = document.getElementById('totalPercentage');
 
   const totalIncomes = filterAndGetTotal(transactions, 'income'); // En este caso, filtra por el atributo 'income'.
   const totalExpenses = filterAndGetTotal(transactions, 'expense'); // En este caso, filtra por el atributo 'expense'.
@@ -44,7 +44,7 @@ const viewTotalIncomesAndExpenses = () => {
 };
 
 const updateBudgetInSection = () => {
-  const viewBudget = document.getElementById('available-budget');
+  const viewBudget = document.getElementById('availableBudget');
 
   if (viewBudget) {
     showBudget(viewBudget);
@@ -54,9 +54,9 @@ const updateBudgetInSection = () => {
 };
 
 const viewTransactions = () => {
-  const sectionIncomes = document.getElementById('section-incomes');
-  const sectionExpenses = document.getElementById('section-expenses');
-  const transactionsContent = document.getElementById('content-transactions');
+  const sectionIncomes = document.getElementById('sectionIncomes');
+  const sectionExpenses = document.getElementById('sectionExpenses');
+  const transactionsContent = document.getElementById('contentTransactions');
   const existingMessage = document.querySelector('.table-none');
 
   if (existingMessage) {
@@ -83,7 +83,7 @@ const viewTransactions = () => {
     const titleHeaderIncomes = document.createElement('h4');
 
     titleHeaderIncomes.classList.add('titles-font', 'text-success');
-    titleHeaderIncomes.innerHTML = `<img class="p-4" src="./css/icons/graph-up-arrow.svg" alt="">Ingresos`;
+    titleHeaderIncomes.innerHTML = `<img class="p-4" src="./images/icons/graph-up-arrow.svg" alt="">Ingresos`;
 
     tableHeaderIncomes.appendChild(titleHeaderIncomes);
     tableRowIncomes.appendChild(tableHeaderIncomes);
@@ -133,7 +133,7 @@ const viewTransactions = () => {
     const titleHeaderExpenses = document.createElement('h4');
 
     titleHeaderExpenses.classList.add('titles-font', 'text-danger');
-    titleHeaderExpenses.innerHTML = `<img class="p-4" src="./css/icons/graph-down-arrow.svg" alt="">Egresos`;
+    titleHeaderExpenses.innerHTML = `<img class="p-4" src="./images/icons/graph-down-arrow.svg" alt="">Egresos`;
 
     tableHeaderExpenses.appendChild(titleHeaderExpenses);
     tableRowExpenses.appendChild(tableHeaderExpenses);
@@ -186,7 +186,7 @@ const viewTransactions = () => {
     if (existingBudget) existingBudget.remove();
 
     const emptySection = document.createElement('small');
-    emptySection.classList.add('table-none', 'empty-section', 'paragraph-font', 'text-muted', 'text-center');
+    emptySection.classList.add('table-none', 'none-transactions', 'paragraph-font', 'text-muted', 'text-center');
     emptySection.style.marginBottom = '50px';
     emptySection.textContent = 'Todavía no tenés registrada ninguna transacción.';
 
@@ -199,7 +199,7 @@ const viewTransactions = () => {
 };
 
 const deleteTransaction = (event) => {
-  const mainElementBudget = document.getElementById('total-budget');
+  const mainElementBudget = document.getElementById('totalBudget');
   const transactionId = event.currentTarget.dataset.id; // data-id='${item.id}'
   const totalBudget = getFromLocalStorage('budget')[0];
   const findTransaction = transactions.find(item => item.id === transactionId);
@@ -237,7 +237,7 @@ const handleRestartBudget = (event) => {
   const budget = getFromLocalStorage('budget')[0];
 
   if (userConfirm && budget) {
-    const mainElementBudget = document.getElementById('total-budget');
+    const mainElementBudget = document.getElementById('totalBudget');
   
     saveInLocalStorage('budget', [0]); // Esto hace que no se me arme una pila de datos, sino que el nuevo dato reemplace al anterior.
   
@@ -258,7 +258,7 @@ const handleRestartBudget = (event) => {
 const handleSubmitTransactions = (event) => { 
   event.preventDefault();
 
-  const mainElementBudget = document.getElementById('total-budget');
+  const mainElementBudget = document.getElementById('totalBudget');
   const formData = getFormData(formTransactions);
   const totalBudget = getFromLocalStorage('budget');
   const budget = !totalBudget.length /* Si no hay presupuesto en el localstorage */ ? 0 : Number(totalBudget[0]);
@@ -309,7 +309,7 @@ const main = () => {
 
   }));
   
-  const mainElementBudget = document.getElementById('total-budget');
+  const mainElementBudget = document.getElementById('totalBudget');
 
   showBudget(mainElementBudget); // Mantiene actualizado el presupuesto al iniciar la página y al enviar el formulario.
 

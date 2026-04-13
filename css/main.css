@@ -1,86 +1,22 @@
-@import url('/css/fonts/fonts.css');
+@import url('./fonts/fonts.css');
 
-@import url('/css/colors/colors.css');
+@import url('./colors/colors.css');
 
-.numbers-font{
-  font-family: var(--numbers-font);
+@import url('./components.css');
 
-}
+@import url('./utilities.css');
 
-.cta-font{
-  font-family: var(--cta-font) !important;
-  font-weight: 700;
-
-}
-
-.titles-font{
-  font-family: var(--titles-font);
+body, html{
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow-x: hidden;
 
 }
 
-.paragraph-font{
-  font-family: var(--paragraph-font);
+p, strong, small{ font-family: var(--text-font); }
 
-}
-
-.main-color{
-  background-color: var(--main-color);
-
-}
-
-.sections-color{
-  background-color: var(--sections-color);
-
-}
-
-.buttons-color{
-  background-color: var(--buttons-color) !important;
-  color: white !important;
-
-}
-
-.main-title{
-  transition: transform 0.3s ease;
-
-}
-
-.main-title:hover{
-  transform: scale(1.1);
-  cursor: pointer;
-
-}
-
-button:hover{
-  background-color: #5197c9 !important;
-
-}
-
-.empty-section{
-  opacity: 0.85;
-
-}
-
-.side-bar-text {
-  display: flex;
-  align-items: stretch;
-  gap: 12px;
-
-}
-
-.side-bar-line {
-  width: 5px;
-  background-color: #7cb0dd;
-  border-radius: 4px;
-
-}
-
-.effect{ transition: transform 0.3s ease; }
-
-.effect:hover{
-  transform: translateX(15px) scale(1.05);
-  cursor: pointer;
-
-}
+form{ font-family: var(--text-font); }
 
 a{ transition: transform 0.3s ease; }
 

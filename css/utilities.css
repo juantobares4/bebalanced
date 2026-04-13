@@ -1,0 +1,15 @@
+@import url('./fonts/fonts.css');
+
+@import url('./colors/colors.css');
+
+.numbers-font{ font-family: var(--numbers-font); font-variant-numeric: tabular-nums; }
+
+.cta-font{ font-family: var(--cta-font) !important; font-weight: 800; }
+
+.titles-font{ font-family: var(--titles-font); }
+
+.text-font{ font-family: var(--text-font); }
+
+.main-color{ background-color: var(--main-color); }
+
+.sections-color{ background-color: var(--sections-color); }
