@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="main-color" id="mainContainer">
-  <header id="navbar" class="navbar fixed-top w-100 p-3 cta-font d-flex justify-content-start sections-color gap-4">
+  <header id="navbar" class="navbar fixed-top p-3 cta-font d-flex justify-content-start sections-color gap-4">
     <a data-id="index-link" href="#">Inicio</a>
     <a data-id="budget-link" class="navbar-links" href="#">Presupuesto</a>
     <a data-id="transaction-link" class="navbar-links" href="#">Transacciones</a>
@@ -38,11 +38,13 @@
   <section id="budgetSection" class="d-flex justify-content-center align-items-center">
     <hr class="w-25 me-4 d-none d-md-block">
     <div class="mt-5 d-flex flex-column align-items-start">
-      <h5 class="titles-font text-black">Presupuesto Disponible:</h5>      
-      <p class="text-black numbers-font" id="totalBudget" style="font-size: 30px;"><b></b></p>
+      <div id="totalBudgetContainer">
+        <h5 class="titles-font text-black">Presupuesto Disponible:</h5>      
+        <p class="text-black numbers-font" id="totalBudget"><b></b></p>
+      </div>
       <form id="formRestartBudget">
         <div class="input-group " style="max-width: 300px;">
-          <button id="addTotalBudget" class="btn w-100 mt-1 rounded shadow" style="min-width: 200px; height: 37px;">
+          <button id="addTotalBudget" class="btn mt-1 rounded shadow" style="min-width: 200px;">
             <img src="/images/icons/arrow-clockwise.svg" class="me-1" alt="">Volver a empezar
           </button>
         </div>
@@ -67,7 +69,7 @@
     </div>
     <form class="px-0" id="formTransactions" style="margin-top: 100px;">
       <div class="row g-3">
-        <div class="col-12 col-lg-3 col-md-6">
+        <div class="col-12 col-lg-3">
           <select name="transactionType" class="form-select ">
             <option selected disabled>Tipo de operación</option>
             <option value="income">Ingreso de dinero</option>
@@ -89,8 +91,8 @@
             <span class="input-group-text">.00</span>
           </div>
         </div>
-        <div class="col-lg-2 col-md-6 d-grid">
-          <button class="btn shadow" id="registerOperation" style="min-height: 37px;">
+        <div class="col-12 col-lg-2 col-md-6 mx-auto">
+          <button class="btn shadow w-100" id="registerOperation" style="min-height: 37px;">
             <img src="/images/icons/pencil-square.svg" alt="Pencil Square" class="me-1">Registrar operación
           </button>
         </div>

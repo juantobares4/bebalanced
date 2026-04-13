@@ -52,6 +52,8 @@ button:hover{
 
 }
 
+#totalBudget{ font-size: 1.5rem; }
+
 .side-bar-text{
   overflow: hidden;
   display: flex;
@@ -92,14 +94,16 @@ button:hover{
 }
 
 #incomesContainer, 
-#expensesContainer{
+#expensesContainer,
+#totalBudgetContainer{
   max-width: 300px;
   width: 100%;
 
 }
 
 #incomesContainer p, 
-#expensesContainer p{
+#expensesContainer p,
+#totalBudget{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
