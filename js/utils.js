@@ -157,7 +157,7 @@ export const showToast = (type, title, msg, container) => {
   const imgSrc = getStatusIcon(type);
 
   const toast = document.createElement('div');
-  toast.className = 'toast align-items-center';
+  toast.className = 'toast align-items-center text-font';
   toast.setAttribute('role', 'alert');
   toast.setAttribute('aria-live', 'assertive');
   toast.setAttribute('aria-atomic', 'true');

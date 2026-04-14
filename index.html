@@ -17,7 +17,34 @@
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="main-color" id="mainContainer">
-  <header id="navbar" class="navbar fixed-top p-3 cta-font d-flex justify-content-start sections-color gap-4">
+  <header id="navbarMobile">
+    <div class="navbar navbar-blur fixed-top p-4 cta-font d-flex justify-content-center gap-4">
+      <button class="btn btn-primary" 
+        role="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasMobile"
+        aria-controls="offcanvasMobile">
+          Menú
+      </button>
+    </div>
+  </header>
+
+  <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasMobile" aria-labelledby="offcanvasMobileLabel" data-bs-scroll="false" data-bs-keyboard="false" data-bs-backdrop="static">
+    <div class="offcanvas-header p-3">
+      <h5 class="offcanvas-title titles-font" id="offcanvasMobileLabel">BeBalanced</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body p-3">
+      <div class="d-flex flex-column gap-3">
+        <a data-id="index-link" href="#">Inicio</a>
+        <a data-id="budget-link" class="navbar-links" href="#">Presupuesto</a>
+        <a data-id="transaction-link" class="navbar-links" href="#">Transacciones</a>
+        <a data-id="balance-link" class="navbar-links" href="#">Balance</a>
+      </div>
+    </div>
+  </div>
+
+  <header id="navbarDesktop" class="navbar fixed-top p-3 cta-font justify-content-start sections-color gap-4">
     <a data-id="index-link" href="#">Inicio</a>
     <a data-id="budget-link" class="navbar-links" href="#">Presupuesto</a>
     <a data-id="transaction-link" class="navbar-links" href="#">Transacciones</a>
@@ -49,7 +76,7 @@
           </button>
         </div>
       </form>  
-    </div>  
+    </div>
   </section>
 
   <section class="p-5 sections-color container-fluid">
@@ -101,46 +128,59 @@
     <hr style="margin-top: 100px;">
   </section>
 
-  <section class="sections-color p-5">
+  <section class="sections-color py-5 px-3 px-md-5">
     <div class="side-bar-text">
       <div class="side-bar-line"></div>
-        <div>
-          <h4 class="titles-font py-3 text-black">Mi balance económico</h4>
-          <p class="mb-1">
-            Acá podés ver en qué se te va la plata y cuánto estás ganando. Una mirada rápida para entender tu balance económico.
-          </p>
-          <small class="text-muted">
-            Llevá el control de tus finanzas de forma simple y rápida.
-          </small>
-        </div>
+      <div>
+        <h4 class="titles-font py-3 text-black text-center text-md-start">
+          Mi balance económico
+        </h4>
+        <p class="mb-1 text-center text-md-start">
+          Acá podés ver en qué se te va la plata y cuánto estás ganando. Una mirada rápida para entender tu balance económico.
+        </p>
+        <small class="text-muted d-block text-center text-md-start">
+          Llevá el control de tus finanzas de forma simple y rápida.
+        </small>
+      </div>
     </div>
-   
-    <div class="container">
-      <div class="d-flex align-items-center align-items-md-start flex-column flex-md-row gap-4" style="margin-top: 70px;">
-        <img src="/images/undraw_savings_uwjn.svg" style="height: 200px;">
-        <div id="totalCashFlowContainer" class="flex-column d-flex gap-4 my-auto">
-          <div class="effect shadow rounded p-2 text-white" style="background-color: rgba(40, 167, 69, 0.75)" id="incomesContainer">
-            <p class="numbers-font">
+
+    <div class="container-fluid mt-5">
+      <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start gap-4">    
+        <img 
+          src="/images/undraw_savings_uwjn.svg" 
+          class="img-fluid"
+          style="max-height: 200px;"
+        >
+
+        <div id="totalCashFlowContainer" class="d-flex flex-column gap-3 w-md-auto">
+          <div class="effect shadow rounded p-3 text-white text-center text-md-start"
+            style="background-color: rgba(40, 167, 69, 0.75)" id="incomesContainer">
+            <p class="numbers-font mb-0">
               Ingresos Totales: <span id="totalAmountIncomes"></span>
             </p>
           </div>
-          <div class="effect d-flex shadow rounded justify-content-center p-2 text-white align-items-center" style="background-color: rgba(222, 41, 59, 0.854);" id="expensesContainer">
-            <p class="numbers-font">
-              Ingresos Totales: <span id="totalAmountExpenses"></span>
+
+          <div class="effect shadow rounded p-3 text-white d-flex flex-column flex-md-row align-items-center justify-content-between gap-2"
+            style="background-color: rgba(222, 41, 59, 0.85);" id="expensesContainer">
+            <p class="numbers-font mb-0">
+              Gastos Totales: <span id="totalAmountExpenses"></span>
             </p>
-            <p id="totalPercentage" title="Porcentaje respecto a los ingresos totales." class="ms-3 text-dark bg-dark-subtle px-2 rounded flex-shrink-0 numbers-font" style="height: 25px;"></p>
+            <p id="totalPercentage"
+              class="numbers-font text-dark bg-dark-subtle px-2 rounded mb-0" title="Porcentaje respecto a los ingresos totales.">
+            </p>
           </div>
         </div>
       </div>
-      <div id="contentTransactions" class="row d-flex" style="margin-top: 110px;">
-        <div class="d-flex justify-content-left">
-          <small class="titles-font ms-3 text-dark bg-dark-subtle p-2 rounded mb-3">Presupuesto disponible: </small>
-          <small class="p-2 numbers-font" id="availableBudget"></small>
+
+      <div id="contentTransactions" class="row mt-5">
+        <div class="d-flex flex-column flex-md-row align-items-center gap-2 mb-4">
+          <small class="titles-font text-dark bg-dark-subtle p-2 rounded">
+            Presupuesto disponible:
+          </small>
+          <small class="numbers-font" id="availableBudget"></small>
         </div>
-        <div id="sectionExpenses" class="col-12 col-md-6 d-flex flex-column" style="align-items: stretch;">
-        </div>
-        <div id="sectionIncomes" class="col-12 col-md-6 d-flex flex-column" style="align-items: stretch;">
-        </div>
+        <div id="sectionExpenses" class="col-12 col-md-6 d-flex flex-column gap-3 mb-4 mb-md-0"></div>
+        <div id="sectionIncomes" class="col-12 col-md-6 d-flex flex-column gap-3"></div>
       </div>
     </div>
   </section>

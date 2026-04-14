@@ -18,8 +18,29 @@ p, strong, small{ font-family: var(--text-font); }
 
 form{ font-family: var(--text-font); }
 
-a{ transition: transform 0.3s ease; }
+a{ transition: transform 0.3s ease; font-family: var(--cta-font); font-weight: 600; }
 
 a:link, a:visited, a:active{ text-decoration: none; color: rgba(0, 0, 0, 0.884); }
 
 a:hover{ transform: translateX(5px) scale(1.01); }
+
+@media (max-width: 576px){
+  #navbarDesktop{
+    display: none !important;
+
+  }
+
+}
+
+@media (min-width: 577px){
+  #navbarDesktop{
+    display: flex !important;
+
+  }
+
+  #navbarMobile{
+    display: none !important;
+
+  }
+
+}
