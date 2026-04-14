@@ -120,7 +120,7 @@ button:focus{
 
 }
 
-#availableBudgetContainer{
-  width: 500px;
+.table td{
+  white-space: nowrap;
 
 }

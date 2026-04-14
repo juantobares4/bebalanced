@@ -121,7 +121,12 @@ const viewTransactions = () => {
 
     tableIncomes.appendChild(headTableIncomes);
     tableIncomes.appendChild(bodyTableIncomes);
-    sectionIncomes.appendChild(tableIncomes);
+    
+    const responsiveWrapperIncomes = document.createElement('div');
+    responsiveWrapperIncomes.className = 'table-responsive';
+
+    responsiveWrapperIncomes.appendChild(tableIncomes);
+    sectionIncomes.appendChild(responsiveWrapperIncomes);
 
     const tableExpenses = document.createElement('table');
     tableExpenses.className = 'table border w-100 table-striped shadow flex-grow-1';
@@ -174,7 +179,12 @@ const viewTransactions = () => {
 
     tableExpenses.appendChild(headTableExpenses);
     tableExpenses.appendChild(bodyTableExpenses);
-    sectionExpenses.appendChild(tableExpenses);
+
+    const responsiveWrapperExpenses = document.createElement('div');
+    responsiveWrapperExpenses.className = 'table-responsive';
+
+    responsiveWrapperExpenses.appendChild(tableExpenses);
+    sectionExpenses.appendChild(responsiveWrapperExpenses);
 
     document.querySelectorAll('.table-cell').forEach(td => {
       td.addEventListener('click', deleteTransaction);
@@ -186,8 +196,7 @@ const viewTransactions = () => {
     if (existingBudget) existingBudget.remove();
 
     const emptySection = document.createElement('small');
-    emptySection.classList.add('table-none', 'none-transactions', 'paragraph-font', 'text-muted', 'text-center');
-    emptySection.style.marginBottom = '50px';
+    emptySection.classList.add('table-none', 'none-transactions', 'paragraph-font', 'text-muted', 'text-center', 'mt-2', 'mb-4');
     emptySection.textContent = 'Todavía no tenés registrada ninguna transacción.';
 
     transactionsContent.appendChild(emptySection);
