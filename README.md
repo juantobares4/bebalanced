@@ -23,6 +23,10 @@ Si bien su uso es sencillo, debemos seguir los siguientes pasos:
 
 4. Click derecho en *Go Live* en la barra inferior derecha de nuestro editor de texto (VSCode).
 
+### 🚀 Visualizar el Sitio en tiempo real
+
+[BeBalanced](https://bebalanced-rust.vercel.app/)
+
 ### 📧 Contacto
 
 [Gmail](mailto:juantobares4@gmail.com)
